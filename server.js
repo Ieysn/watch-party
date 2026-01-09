@@ -10,7 +10,8 @@ const io = new Server(server, {
   cors: { origin: "*" }
 });
 
-app.use(express.static(path.join(__dirname, "public")));
+app.use(express.static(__dirname));
+
 
 const rooms = new Map(); // roomId -> { hostId, guestId }
 
@@ -121,3 +122,4 @@ io.on("connection", (socket) => {
 
 const PORT = process.env.PORT || 3000;
 server.listen(PORT, () => console.log(`Running: http://localhost:${PORT}`));
+
