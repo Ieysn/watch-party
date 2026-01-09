@@ -32,9 +32,7 @@ io.on("connection", (socket) => {
 
     const room = getRoom(roomId);
 
-    // 2 nəfər limit
-    const full = room.hostId && room.guestId && room.hostId !== socket.id && room.guestId !== socket.id;
-    if (full) return socket.emit("room-full");
+  
 
     socket.join(roomId);
     socket.data.roomId = roomId;
@@ -122,4 +120,5 @@ io.on("connection", (socket) => {
 
 const PORT = process.env.PORT || 3000;
 server.listen(PORT, () => console.log(`Running: http://localhost:${PORT}`));
+
 
