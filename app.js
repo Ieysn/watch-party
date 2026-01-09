@@ -1,4 +1,4 @@
-const socket = io();
+const socket = io("https://watch-partywithdiva.onrender.com");
 
 const el = {
   badge: document.getElementById("badge"),
@@ -277,3 +277,4 @@ socket.on("chat", ({ name, text }) => addLine(`${name}: ${text}`));
   const r = url.searchParams.get("room");
   if (r) el.room.value = r;
 })();
+
