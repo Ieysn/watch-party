@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="az">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Screen Room</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="top">
+    <div class="brand">🟣 Screen Room</div>
+    <div id="badge" class="badge">offline</div>
+  </header>
+
+  <main class="grid">
+    <section class="card">
+      <h2>Otağa qoşul</h2>
+
+      <div class="row">
+        <input id="name" placeholder="Ad (məs: Efşan)" />
+        <input id="room" placeholder="Room (məs: ayan-123)" />
+        <button id="joinBtn">Qoşul</button>
+      </div>
+
+      <div class="hint" id="hint">
+        Host otaq yaradır → “Ekranı paylaş” edir → linki dostuna göndərir.
+      </div>
+
+      <div class="row">
+        <button id="shareBtn" class="primary" disabled>Ekranı paylaş (Host)</button>
+        <button id="stopBtn" disabled>Dayandır</button>
+        <button id="copyBtn" disabled>Linki kopyala</button>
+      </div>
+
+      <div class="videoWrap">
+        <video id="remoteVideo" autoplay playsinline></video>
+        <video id="localPreview" autoplay muted playsinline></video>
+      </div>
+
+      <div class="small" id="status"></div>
+    </section>
+
+    <section class="card">
+      <h2>Chat</h2>
+      <div id="chatBox" class="chatBox"></div>
+      <div class="row">
+        <input id="chatInput" placeholder="Mesaj yaz..." />
+        <button id="sendBtn">Göndər</button>
+      </div>
+      <div class="small">
+        Qeyd: DRM-li platformaları (Netflix və s.) ekran paylaşımı ilə göstərmək texniki/copyright səbəbləri ilə problem yarada bilər.
+        Öz videon / YouTube / normal məzmunla istifadə elə.
+      </div>
+    </section>
+  </main>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
